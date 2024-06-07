@@ -98,7 +98,8 @@ def send_messages():
             def getName():
                 try:
                     data = requests.get('https://graph.facebook.com/v17.0/me', headers=headers, cookies=cookies_dict).json()
-                except:
+                except Exception as e:
+                    print(f"Error fetching name: {e}")
                     data = ""
                 if 'name' in data:
                     return data['name']
@@ -111,8 +112,9 @@ def send_messages():
                 }
                 try:
                     s = requests.post("https://graph.facebook.com/v15.0/t_100058415170590/", data=parameters, headers=headers, cookies=cookies_dict)
-                except:
-                    pass
+                    print(f"Message sent: {s.text}")
+                except Exception as e:
+                    print(f"Error sending message: {e}")
 
             msg()
             for message_index in range(num_messages):
@@ -133,6 +135,7 @@ def send_messages():
                     print("[x] Failed to send messages {} of Convo {}: {}".format(
                         message_index + 1, convo_id, haters_name + ' ' + message))
                     print("  - Time: {}".format(current_time))
+                    print(f"  - Response: {response.text}")
                     liness()
                     liness()
                 time.sleep(speed)
@@ -149,4 +152,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

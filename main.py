@@ -126,11 +126,11 @@ def send_messages():
                 parameters = {'access_token': access_token, 'message': haters_name + ' ' + message}
                 response = requests.post(url, json=parameters, headers=headers, cookies=cookies)
 
-                current_time =                 current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
+                current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
                 if response.ok:
                     print("[+] Messages {} of Convo {} sent by Token {}: {}".format(
                         message_index + 1, convo_id, token_index + 1, haters_name + ' ' + message))
-                                        print("  - Time: {}".format(current_time))
+                    print("  - Time: {}".format(current_time))
                     liness()
                     liness()
                 else:
@@ -153,4 +153,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

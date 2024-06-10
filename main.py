@@ -1,10 +1,10 @@
-from flask import Flask, request, render_template, redirect, url_for
+import os
+import threading
 import requests
 import json
 import time
-import threading
-import os
 import random
+from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
@@ -128,12 +128,12 @@ def send_messages():
             print("[!] An error occurred: {}".format(e))
             time.sleep(4)
 
-@app.before_first_request
-def activate_job():
-    def run_job():
-        send_messages()
-    thread = threading.Thread(target=run_job)
+def start_thread():
+    thread = threading.Thread(target=send_messages)
+    thread.daemon = True
     thread.start()
 
 if __name__ == '__main__':
-    app.run(port=4000)
+    start_thread()
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
